@@ -40,10 +40,11 @@ function decoding(str){
 
 
 if (arg_func.toLowerCase() == "coding"){
-    let content = coding(str)
+    let content = coding(str);
     const data = fs.writeFileSync("rleout.txt", content);
+    console.log(str.length / content.length);	
 }
-else {
-    let content = decoding(str)
+if (arg_func.toLowerCase() == "decoding"){
+    let content = decoding(str);
     const data = fs.writeFileSync("rleout.txt", content);
 }
