@@ -20,4 +20,5 @@ for(i in alph){
 	H -= alph[i] * Math.log(alph[i] / len_s) / len_s;		
 }
  
-console.log(H / Math.log(pow))
+if (H != 0) H = H / Math.log(pow);
+console.log(H);
