@@ -1,3 +1,5 @@
+//Мельниченко Андрей
+//КНМО-101
 const fs = require("fs")
 let name = process.argv[2];
 let s = fs.readFileSync(name, "utf8");
