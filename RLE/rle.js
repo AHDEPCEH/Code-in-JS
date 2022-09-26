@@ -1,3 +1,5 @@
+//Мельниченко Андрей
+//КНМО-101
 const fs = require("fs")
 let arg_func = process.argv[2]; //Берём аргумент code/decode
 let name1 = process.argv[3];//Имя читаемого файла
