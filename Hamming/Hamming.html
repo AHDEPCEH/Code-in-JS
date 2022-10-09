@@ -44,12 +44,12 @@
 			if (err != 0){
 				alert("Ошибка в: " + (err + "") + " знаке!");
 				arr[err - 1] = (arr[err - 1] + 1) % 2;
-				for (let i = 0; i < arr.length; i ++) new_str += arr[i];
+				new_str += "" + arr[2] + arr[4] + arr[5] + arr[6];
 				document.getElementById("myDecodeMessage").value = new_str;
 			}
 			else {
 				alert("Ошибок нет!");
-				for (let i = 0; i < arr.length; i ++) new_str += arr[i];
+				new_str += "" + arr[2] + arr[4] + arr[5] + arr[6];
 				document.getElementById("myDecodeMessage").value = new_str;
 			};
 		};
