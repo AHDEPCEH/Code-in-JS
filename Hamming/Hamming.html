@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hamming code</title>
+    <script>
+        function code() {
+            let message = document.getElementById("myInputMessage").value;
+			let arr = []; //Численный массив из строки
+			let new_str = "0000000".split("");
+			let count = 0;
+			index = "2456";
+			//Заполняем новую строку битами чётности равными 0
+			for (let i = 0; i < index.length; i ++){
+				new_str[index[i] * 1] = message[count];
+				count ++;
+			};
+			//Считаем чему равны биты чётности
+			for (let i = 0; i < new_str.length; i ++) arr.push(new_str[i] * 1)
+			arr[0] = (arr[2] + arr[4] + arr[6]) % 2;
+			arr[1] = (arr[2] + arr[5] + arr[6]) % 2;
+			arr[3] = (arr[4] + arr[5] + arr[6]) % 2;
+			new_str = ""
+			//Приводим числовой массив в строку
+			for (let i = 0; i < arr.length; i ++) new_str += arr[i];
+            document.getElementById("myEncodeMessage").value = new_str;
+        }
+		function decode(){
+			let message = document.getElementById("myEncodeMessage").value;
+			let arr = [];//Числовой массив
+			let new_str = "";//Итоговая строка
+			let corr = [];//Правильный массив из данной строки
+			for (let i = 0; i < message.length; i ++) arr.push(message[i] * 1);
+			for (let i = 0; i < message.length; i ++) corr.push(message[i] * 1);
+			//Считаем правильные биты чётности
+			corr[0] = (arr[2] + arr[4] + arr[6]) % 2;
+			corr[1] = (arr[2] + arr[5] + arr[6]) % 2;
+			corr[3] = (arr[4] + arr[5] + arr[6]) % 2;
+			let err = 0; //Номер знака с ошибкой
+			//Поиск ошибок в правильном и данном массиве
+			for (let i = 0; i < arr.length; i ++){
+				if (corr[i] != arr[i]) err += (i + 1);
+			};
+			//Обработка вывода
+			if (err != 0){
+				alert("Ошибка в: " + (err + "") + " знаке!");
+				arr[err - 1] = (arr[err - 1] + 1) % 2;
+				for (let i = 0; i < arr.length; i ++) new_str += arr[i];
+				document.getElementById("myDecodeMessage").value = new_str;
+			}
+			else {
+				alert("Ошибок нет!");
+				for (let i = 0; i < arr.length; i ++) new_str += arr[i];
+				document.getElementById("myDecodeMessage").value = new_str;
+			};
+		};
+    </script>
+</head>
+<body>
+    <h1><center>My Hamming Code</center></h1>
+    <p><input type="text", id="myInputMessage"> 4 bites</p>
+    <p><input type="button", value="Code", onclick="code()"></p>
+    <p><input type="text", id="myEncodeMessage"> encoded message</p>
+    <p><input type="button", value="Decode", onclick="decode()"></p>
+    <p><input type="text", id="myDecodeMessage"> decoded message</p>
+</body>
+</html>
