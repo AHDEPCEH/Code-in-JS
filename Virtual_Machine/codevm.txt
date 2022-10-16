@@ -1,0 +1,19 @@
+input 60
+set 61 1
+set 62 1
+cmp 61 60 14
+jmp 24
+mlt 62 60 62
+sub 60 61 60
+jmp 8
+output 62
+input 63
+input 64
+set 65 1
+cmp 61 64 39
+jmp 49
+mlt 65 63 65
+sub 64 61 64
+jmp 33
+mlt 65 63 65
+output 65

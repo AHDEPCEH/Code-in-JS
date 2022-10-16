@@ -1,0 +1,18 @@
+Мельниченко Андрей КНМО-101:
+Постановка задачи:
+1)Реализовать простые функции для низкоуровнего языка программирования.
+2)Написать программу на нашем языке и реализовать на ней вычисление факториала и степени числа.
+Пример:
+Перед запуском необходимо установить библиотеку: npm install readline-sync -S
+Запуск: node VM.js codevm.txt
+Команды:
+cmp arg1 arg2 val ----> if arg1 < arg2 ----> ip = val 
+add arg1 arg2 arg3 ----> arg3 = arg1 + arg2
+sub arg1 arg2 arg3 ----> arg3 = arg1 - arg2
+mlt arg1 arg2 arg3 ----> arg3 = arg1 * arg2
+div arg1 arg2 arg3 ----> arg3 = arg1 / arg2
+jmp val ----> ip = val
+input arg ----> arg = enter in console
+output arg ----> console.log(arg)
+set arg val ----> arg = val
+P.S. В приложенном файле codevm.txt содержится код для вычисления факториала числа(Enter #1) и степени(Enter #3) числа(Enter #2)
