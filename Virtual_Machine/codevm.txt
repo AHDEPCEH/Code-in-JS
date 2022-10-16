@@ -10,10 +10,11 @@ output 62
 input 63
 input 64
 set 65 1
-cmp 61 64 39
-jmp 49
+set 66 1
+sub 61 61 61
+cmp 61 64 46
+jmp 56
 mlt 65 63 65
-sub 64 61 64
-jmp 33
-mlt 65 63 65
+sub 64 66 64
+jmp 40
 output 65
